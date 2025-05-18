@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guilherme Anvers - Desenvolvedor de sites profissionais, rápidos e otimizados para negócios que querem resultados reais.">
+  <meta name="keywords" content="desenvolvimento web, sites profissionais, web design, responsivo, Guilherme Anvers">
+  <meta name="author" content="Guilherme Anvers">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Guilherme Anvers | Web Designer">
+  <meta property="og:description" content="Desenvolvedor de sites profissionais e otimizados para negócios. Transforme sua presença online com Guilherme Anvers!">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Guilherme+Anvers">
+  <meta property="og:url" content="https://seu-site.com">
+  <meta property="og:type" content="website">
+  <title>Guilherme Anvers | Web Designer</title>
+  <!-- Google Fonts: Poppins e Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- AOS para animações -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Swiper para carrossel -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://via.placeholder.com/32?text=GA">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    }
+    .navbar {
+      backdrop-filter: blur(10px);
+      background: rgba(17, 24, 39, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .hero-bg {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, #1e3a8a 0%, #6b21a8 100%);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    .cta-pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+    .service-card, .portfolio-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .service-card:hover, .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .form-input {
+      transition: border-color 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: #3b82f6;
+      outline: none;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #3b82f6;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      display: none;
+      z-index: 100;
+      font-size: 1rem;
+    }
+    .back-to-top.show {
+      display: block;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25D366;
+      color: white;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    .swiper-slide {
+      position: relative;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #1f2937;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      min-height: 200px;
+    }
+    .swiper-slide:hover {
+      transform: scale(1.02);
+    }
+    .swiper-slide p {
+      flex-grow: 1;
+    }
+    .swiper-pagination {
+      position: static;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-pagination-bullet {
+      background: #fff;
+      opacity: 0.5;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: #3b82f6;
+    }
+    .stars i {
+      margin: 0 2px;
+    }
+    .counter-box {
+      background: #1f2937;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .counter-box:hover {
+      transform: translateY(-5px);
+    }
+    .social-icons a {
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    .client-logo {
+      width: 150px;
+      height: 90px;
+      object-fit: contain;
+      padding: 6px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .client-logo:hover {
+      transform: scale(1.05);
+    }
+    .client-logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .reviewer-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 8px;
+    }
+    .form-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .form-feedback.success {
+      display: block;
+      background: #d1e7dd;
+      color: #0f5132;
+    }
+    .form-feedback.error {
+      display: block;
+      background: #f8d7da;
+      color: #842029;
+    }
+
+    /* Media Queries */
+    @media (max-width: 640px) {
+      .navbar nav {
+        display: none;
+      }
+      .navbar .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: #fff;
+        cursor: pointer;
+      }
+      .navbar.active nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(17, 24, 39, 0.9);
+        padding: 1rem;
+        text-align: center;
+      }
+      .navbar.active nav a {
+        margin: 0.5rem 0;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .hero-bg h1 {
+        font-size: 2rem;
+      }
+      .hero-bg p {
+        font-size: 1rem;
+      }
+      .cta-pulse {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+      .service-card, .portfolio-card {
+        padding: 1rem;
+      }
+      .service-card h3, .portfolio-card h3 {
+        font-size: 1.25rem;
+      }
+      .client-logo {
+        width: 120px;
+        height: 72px;
+      }
+      .form-input {
+        padding: 0.75rem;
+      }
+      textarea.form-input {
+        height: 20vh;
+      }
+      .whatsapp-float {
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        left: 10px;
+      }
+      .whatsapp-float i {
+        font-size: 1.25rem;
+      }
+      .swiper-slide {
+        padding: 0.5rem;
+        min-height: 220px;
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .navbar nav {
+        display: flex;
+      }
+      .navbar .menu-toggle {
+        display: none;
+      }
+      .hero-bg h1 {
+        font-size: 3rem;
+      }
+      .service-card, .portfolio-card {
+        padding: 1.5rem;
+      }
+      .client-logo {
+        width: 180px;
+        height: 108px;
+      }
+      .form-input {
+        padding: 1rem;
+      }
+      .swiper-slide {
+        padding: 1rem;
+        min-height: 200px;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .navbar nav {
+        display: flex;
+      }
+      .navbar .menu-toggle {
+        display: none;
+      }
+      .hero-bg h1 {
+        font-size: 4rem;
+      }
+      .client-logo {
+        width: 200px;
+        height: 120px;
+      }
+      .swiper-slide {
+        padding: 1.5rem;
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body class="text-white font-['Inter']">
+
+  <!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/5521965846504?text=Olá,%20gostaria%20de%20saber%20o%20valor%20do%20orçamento%20para%20um%20site%20profissional.%20Pode%20me%20ajudar?" target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Navbar -->
+  <header class="navbar fixed top-0 w-full z-20 p-4 flex justify-between items-center border-b border-gray-700">
+    <h1 class="text-xl md:text-2xl font-bold font-['Poppins'] text-blue-400">Guilherme Anvers</h1>
+    <nav class="space-x-4 text-sm md:text-base font-['Poppins']">
+      <a href="#home" class="hover:text-blue-400 transition">Home</a>
+      <a href="#sobre" class="hover:text-blue-400 transition">Sobre</a>
+      <a href="#servicos" class="hover:text-blue-400 transition">Serviços</a>
+      <a href="#portfolio" class="hover:text-blue-400 transition">Portfólio</a>
+      <a href="#contato" class="hover:text-blue-400 transition">Contato</a>
+    </nav>
+    <div class="md:hidden menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero-bg text-center py-20 md:py-40 px-4 md:px-6 relative" data-aos="fade-up">
+      <div class="hero-overlay"></div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-['Poppins'] font-extrabold mb-4 md:mb-6 text-blue-400 relative z-10">
+        Sites que Transformam Negócios
+      </h1>
+      <p class="text-gray-300 mb-4 md:mb-8 text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto relative z-10">
+        <span id="typed-text"></span>
+      </p>
+      <a href="https://wa.me/5521965846504?text=Olá,%20gostaria%20de%20saber%20o%20valor%20do%20orçamento%20para%20um%20site%20profissional.%20Pode%20me%20ajudar?" target="_blank" aria-label="Solicitar orçamento via WhatsApp"
+         class="cta-pulse bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-6 py-2 md:px-8 md:py-4 rounded-full text-white font-['Poppins'] font-semibold text-base md:text-lg inline-block relative z-10">
+        <i class="fab fa-whatsapp mr-1 md:mr-2"></i> Fale Comigo Agora
+      </a>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="max-w-5xl mx-auto py-12 md:py-20 px-4 md:px-6">
+      <div class="grid grid-cols-1 gap-8 md:gap-12 items-center">
+        <div data-aos="fade-left">
+          <h2 class="text-2xl md:text-4xl font-['Poppins'] font-bold mb-4 md:mb-6">Por que confiar em mim?</h2>
+          <p class="text-gray-300 text-base md:text-lg">
+            Com uma abordagem prática e focada em resultados, ofereço não apenas soluções personalizadas para o desenvolvimento de websites, mas também consultoria estratégica para análise de dados e otimização de processos. Minha experiência em criar plataformas robustas e eficientes, aliada ao conhecimento de ferramentas de análise, garante que seu projeto seja não só visualmente atraente, mas também funcional e alinhado às necessidades reais do seu negócio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="bg-gray-800 py-12 md:py-20 px-4 md:px-6">
+      <h2 class="text-2xl md:text-4xl font-['Poppins'] font-bold text-center mb-6 md:mb-12" data-aos="fade-up">O que Eu Ofereço</h2>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <article class="service-card bg-gray-700 p-4 md:p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-bolt text-2xl md:text-4xl mb-2 md:mb-4 text-blue-400"></i>
+          <h3 class="text-lg md:text-xl font-['Poppins'] font-semibold mb-2">Ultra Rápido</h3>
+          <p class="text-gray-400 text-sm md:text-base">Sites entregues em até 5 dias, com performance otimizada.</p>
+        </article>
+        <article class="service-card bg-gray-700 p-4 md:p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-mobile-alt text-2xl md:text-4xl mb-2 md:mb-4 text-blue-400"></i>
+          <h3 class="text-lg md:text-xl font-['Poppins'] font-semibold mb-2">100% Responsivo</h3>
+          <p class="text-gray-400 text-sm md:text-base">Designs perfeitos para celular, tablet e desktop.</p>
+        </article>
+        <article class="service-card bg-gray-700 p-4 md:p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-bullseye text-2xl md:text-4xl mb-2 md:mb-4 text-blue-400"></i>
+          <h3 class="text-lg md:text-xl font-['Poppins'] font-semibold mb-2">Foco em Conversão</h3>
+          <p class="text-gray-400 text-sm md:text-base">Sites que atraem e convertem seus clientes.</p>
+        </article>
+      </div>
+      <div class="text-center mt-6 md:mt-12" data-aos="fade-up" data-aos-delay="400">
+        <a href="https://wa.me/5521965846504?text=Olá,%20gostaria%20de%20saber%20o%20valor%20do%20orçamento%20para%20um%20site%20profissional.%20Pode%20me%20ajudar?" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 md:px-8 md:py-4 rounded-full font-['Poppins'] font-semibold text-base md:text-lg inline-block">
+          Solicite um Orçamento
+        </a>
+      </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="max-w-5xl mx-auto py-12 md:py-20 px-4 md:px-6">
+      <h2 class="text-2xl md:text-4xl font-['Poppins'] font-bold text-center mb-6 md:mb-12" data-aos="fade-up">Por que Escolher Meus Serviços?</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 text-center">
+        <article data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-star text-xl md:text-3xl text-blue-400 mb-2 md:mb-4"></i>
+          <p class="text-gray-300 text-sm md:text-base">Design Exclusivo</p>
+        </article>
+        <article data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-clock text-xl md:text-3xl text-blue-400 mb-2 md:mb-4"></i>
+          <p class="text-gray-300 text-sm md:text-base">Entrega Rápida</p>
+        </article>
+        <article data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-headset text-xl md:text-3xl text-blue-400 mb-2 md:mb-4"></i>
+          <p class="text-gray-300 text-sm md:text-base">Suporte Contínuo</p>
+        </article>
+        <article data-aos="fade-up" data-aos-delay="400">
+          <i class="fas fa-dollar-sign text-xl md:text-3xl text-blue-400 mb-2 md:mb-4"></i>
+          <p class="text-gray-300 text-sm md:text-base">Preços Acessíveis</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio" class="bg-gray-800 py-12 md:py-20 px-4 md:px-6">
+      <h2 class="text-2xl md:text-4xl font-['Poppins'] font-bold text-center mb-6 md:mb-12" data-aos="fade-up">Portfólio</h2>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <article class="portfolio-card bg-gray-700 p-4 md:p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" loading="lazy" alt="E-commerce de Moda" class="w-full h-32 md:h-40 object-cover rounded-md mb-2 md:mb-4">
+          <h3 class="text-lg md:text-xl font-['Poppins'] font-semibold mb-2">E-commerce de Moda</h3>
+          <p class="text-gray-400 text-sm md:text-base">Um site de e-commerce elegante que aumentou as vendas em 200% em 6 meses.</p>
+        </article>
+        <article class="portfolio-card bg-gray-700 p-4 md:p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Startup Tech" class="w-full h-32 md:h-40 object-cover rounded-md mb-2 md:mb-4">
+          <h3 class="text-lg md:text-xl font-['Poppins'] font-semibold mb-2">Startup Tech</h3>
+          <p class="text-gray-400 text-sm md:text-base">Site moderno para uma startup que atraiu investidores em menos de 3 meses.</p>
+        </article>
+        <article class="portfolio-card bg-gray-700 p-4 md:p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Consultoria Digital" class="w-full h-32 md:h-40 object-cover rounded-md mb-2 md:mb-4">
+          <h3 class="text-lg md:text-xl font-['Poppins'] font-semibold mb-2">Consultoria Digital</h3>
+          <p class="text-gray-400 text-sm md:text-base">Landing page que gerou 500 leads em 1 mês para uma consultoria.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Provas Sociais -->
+    <section class="max-w-5xl mx-auto py-12 md:py-20 px-4 md:px-6">
+      <h2 class="text-2xl md:text-4xl font-['Poppins'] font-bold text-center mb-6 md:mb-12" data-aos="fade-up">Números que Falam</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center">
+        <div class="counter-box" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-2xl md:text-3xl font-['Poppins'] font-bold text-blue-400">50+</h3>
+          <p class="text-gray-300 text-sm md:text-base">Projetos Concluídos</p>
+        </div>
+        <div class="counter-box" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl md:text-3xl font-['Poppins'] font-bold text-blue-400">100%</h3>
+          <p class="text-gray-300 text-sm md:text-base">Clientes Satisfeitos</p>
+        </div>
+        <div class="counter-box" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-2xl md:text-3xl font-['Poppins'] font-bold text-blue-400">+3</h3>
+          <p class="text-gray-300 text-sm md:text-base">Anos de Experiência</p>
+        </div>
+      </div>
+      <div class="text-center mt-6 md:mt-12" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-lg md:text-xl font-['Poppins'] font-semibold mb-4 md:mb-6">Empresas que Confiam no Meu Trabalho</h3>
+        <div class="client-logo-container">
+          <img src="solebrezzalogo.png" loading="lazy" alt="Solebrezza" class="client-logo">
+          <img src="realLDabarberlogo-removebg-preview.png" loading="lazy" alt="LD Barber" class="client-logo">
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="bg-gray-800 py-12 md:py-20 px-4 md:px-6">
+      <h2 class="text-2xl md:text-4xl font-['Poppins'] font-bold text-center mb-4 md:mb-6" data-aos="fade-up">O que Dizem Meus Clientes</h2>
+      <p class="text-gray-400 text-center mb-4 md:mb-12 text-sm md:text-base" data-aos="fade-up" data-aos-delay="100">Confira as experiências de quem já transformou seus negócios comigo</p>
+      <div class="swiper max-w-full md:max-w-4xl mx-auto" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <article class="swiper-slide bg-gray-700 rounded-lg">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" loading="lazy" alt="Ana" class="reviewer-pic">
+            <div class="stars text-yellow-400 mb-2 md:mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-300 italic mb-2 md:mb-4 text-sm md:text-base">"Guilherme entregou um site rápido e profissional que superou nossas expectativas!"</p>
+            <p class="text-blue-400 font-['Poppins'] font-semibold text-sm md:text-base">— Ana, Empreendedora</p>
+          </article>
+          <article class="swiper-slide bg-gray-700 rounded-lg">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" loading="lazy" alt="João" class="reviewer-pic">
+            <div class="stars text-yellow-400 mb-2 md:mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text-gray-300 italic mb-2 md:mb-4 text-sm md:text-base">"Trabalho impecável e no prazo. Meu negócio ganhou vida online!"</p>
+            <p class="text-blue-400 font-['Poppins'] font-semibold text-sm md:text-base">— João, Startup Founder</p>
+          </article>
+          <article class="swiper-slide bg-gray-700 rounded-lg">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" loading="lazy" alt="Mariana" class="reviewer-pic">
+            <div class="stars text-yellow-400 mb-2 md:mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-300 italic mb-2 md:mb-4 text-sm md:text-base">"O design do site ficou moderno e funcional. Meus clientes adoraram!"</p>
+            <p class="text-blue-400 font-['Poppins'] font-semibold text-sm md:text-base">— Mariana, Consultora</p>
+          </article>
+          <article class="swiper-slide bg-gray-700 rounded-lg">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" loading="lazy" alt="Pedro" class="reviewer-pic">
+            <div class="stars text-yellow-400 mb-2 md:mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-300 italic mb-2 md:mb-4 text-sm md:text-base">"Profissionalismo e criatividade em cada detalhe. Melhor escolha que fiz!"</p>
+            <p class="text-blue-400 font-['Poppins'] font-semibold text-sm md:text-base">— Pedro, Empresário</p>
+          </article>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-12 md:py-20 px-4 md:px-6">
+      <h2 class="text-2xl md:text-4xl font-['Poppins'] font-bold text-center mb-6 md:mb-12" data-aos="fade-up">Vamos Criar Algo Incrível?</h2>
+      <div class="max-w-xl md:max-w-2xl mx-auto">
+        <form id="contact-form" action="https://formspree.io/f/mvgavkav" method="POST" class="space-y-4 md:space-y-6 mb-6 md:mb-8" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <input type="text" name="nome" placeholder="Seu nome" class="form-input w-full p-3 md:p-4 rounded-md bg-gray-700 border border-gray-600 text-white text-sm md:text-base" required>
+          </div>
+          <div>
+            <input type="email" name="email" placeholder="Seu e-mail" class="form-input w-full p-3 md:p-4 rounded-md bg-gray-700 border border-gray-600 text-white text-sm md:text-base" required>
+          </div>
+          <div>
+            <textarea name="mensagem" placeholder="Sua mensagem" class="form-input w-full p-3 md:p-4 rounded-md bg-gray-700 border border-gray-600 text-white h-24 md:h-32 text-sm md:text-base" required></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 md:px-8 md:py-4 rounded-full font-['Poppins'] font-semibold w-full text-sm md:text-base">
+            Enviar Mensagem
+          </button>
+        </form>
+        <div id="form-feedback" class="form-feedback"></div>
+        <div class="text-center space-x-2 md:space-x-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="https://wa.me/5521965846504?text=Olá,%20gostaria%20de%20saber%20o%20valor%20do%20orçamento%20para%20um%20site%20profissional.%20Pode%20me%20ajudar?" target="_blank" aria-label="Contato via WhatsApp"
+             class="inline-block bg-green-600 hover:bg-green-700 px-4 py-2 md:px-6 md:py-3 rounded-full font-['Poppins'] font-semibold text-sm md:text-base transition">
+            <i class="fab fa-whatsapp mr-1 md:mr-2"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 md:py-8 text-xs md:text-sm text-gray-500 border-t border-gray-700">
+    <div class="max-w-5xl mx-auto">
+      <div class="space-x-2 md:space-x-4 mb-2 md:mb-4">
+        <a href="#home" class="hover:text-blue-400">Home</a>
+        <a href="#sobre" class="hover:text-blue-400">Sobre</a>
+        <a href="#servicos" class="hover:text-blue-400">Serviços</a>
+        <a href="#portfolio" class="hover:text-blue-400">Portfólio</a>
+        <a href="#contato" class="hover:text-blue-400">Contato</a>
+      </div>
+      <div class="social-icons flex justify-center space-x-2 md:space-x-6 mb-2 md:mb-4">
+        </a>
+      </div>
+      <p>© 2025 Guilherme Anvers. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <a href="#home" class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script>
+    // Typed.js
+    new Typed('#typed-text', {
+      strings: ['Soluções digitais sob medida.', 'Designs que encantam.', 'Resultados que impressionam.'],
+      typeSpeed: 40,
+      backSpeed: 20,
+      loop: true
+    });
+
+    // Swiper
+    new Swiper('.swiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true, type: 'bullets' },
+      autoplay: { delay: 5000 },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        1024: { slidesPerView: 3, spaceBetween: 30 }
+      }
+    });
+
+    // AOS
+    AOS.init({ duration: 1000, once: true });
+
+    // Back to Top
+    window.addEventListener('scroll', () => {
+      const backToTop = document.querySelector('.back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    // Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+
+    // Formspree Form Handling
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = this;
+        const feedback = document.getElementById('form-feedback');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+        feedback.textContent = '';
+        feedback.className = 'form-feedback';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            feedback.textContent = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
+            feedback.className = 'form-feedback success';
+            form.reset();
+            setTimeout(() => { feedback.style.display = 'none'; }, 5000);
+          } else {
+            feedback.textContent = 'Erro ao enviar a mensagem. Tente novamente ou entre em contato via WhatsApp.';
+            feedback.className = 'form-feedback error';
+          }
+        })
+        .catch(error => {
+          feedback.textContent = 'Erro ao enviar a mensagem. Tente novamente ou entre em contato via WhatsApp.';
+          feedback.className = 'form-feedback error';
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Enviar Mensagem';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
